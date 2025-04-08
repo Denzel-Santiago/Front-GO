@@ -1,0 +1,74 @@
+<!-- home.component.html -->
+
+<!-- Navbar -->
+<nav class="flex justify-between items-center p-4 bg-black text-white fixed w-full z-50 shadow-md">
+    <div class="text-2xl font-bold">Game Nation</div>
+    <ul class="flex space-x-6 text-sm uppercase">
+      <li><a href="#">Home</a></li>
+      <li><a href="/Games">Juegos</a></li>
+      <li><a href="/User">Usuarios</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('assets/fondo2.png')">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+      <h1 class="text-5xl font-bold mb-6">Game Nation</h1>
+      <div class="space-x-4">
+        <button class="bg-yellow-600 hover:bg-yellow-500 px-6 py-2 font-semibold rounded">leer</button>
+        <button class="bg-gray-600 hover:bg-gray-500 px-6 py-2 font-semibold rounded">Jugar</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 3 Images Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-8 bg-black text-white">
+    <img src="assets/gears.png" class="w-full h-64 object-cover rounded" />
+    <img src="assets/halo.png" class="w-full h-64 object-cover rounded" />
+    <img src="assets/minecraft.png" class="w-full h-64 object-cover rounded" />
+  </section>
+  
+  <!-- Características -->
+<section class="bg-gradient-to-b from-black to-gray-900 text-white text-center py-12 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="text-3xl mb-2">🎮</div>
+        <h3 class="text-xl font-bold">Atmósfera Increíble</h3>
+        <p class="text-sm mt-2">Visuales impresionantes y un diseño sonoro épico. Diseñado para mantenerte inmerso durante horas.</p>
+      </div>
+      <div>
+        <div class="text-3xl mb-2">⚔️</div>
+        <h3 class="text-xl font-bold">Batallas Emocionantes</h3>
+        <p class="text-sm mt-2">Participa en batallas intensas. Derrota enemigos legendarios y demuestra tu poder.</p>
+      </div>
+      <div>
+        <div class="text-3xl mb-2">🏆</div>
+        <h3 class="text-xl font-bold">25 Premios</h3>
+        <p class="text-sm mt-2">Juego galardonado a nivel mundial, reconocido por su calidad y experiencia única.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Acerca del Juego -->
+  <section class="bg-black text-white px-6 py-12 text-center">
+    <h2 class="text-2xl font-bold mb-4">Acerca del Juego</h2>
+    <p class="max-w-3xl mx-auto mb-6 text-sm">
+      Adéntrate en un universo donde cada decisión cuenta. Desde reinos en guerra hasta criaturas míticas, cada rincón del mundo te desafía a sobrevivir, conquistar y descubrir los secretos que yacen ocultos. Explora, lucha, y forja tu destino en Game Nation.
+    </p>
+    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto mt-8">
+      <div>
+        <h3 class="text-3xl font-bold">65</h3>
+        <p class="text-sm">Clases Únicas</p>
+      </div>
+      <div>
+        <h3 class="text-3xl font-bold">145</h3>
+        <p class="text-sm">Jefes Épicos</p>
+      </div>
+      <div>
+        <h3 class="text-3xl font-bold">35</h3>
+        <p class="text-sm">Castillos</p>
+      </div>
+    </div>
+  </section>
+  

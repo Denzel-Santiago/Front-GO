@@ -5,12 +5,10 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink], 
+  imports: [CommonModule], 
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class homeComponent implements OnInit {
-    ngOnInit(): void {
-        throw new Error('Method not implemented.');
-    }
+export class homeComponent {
+    
 }

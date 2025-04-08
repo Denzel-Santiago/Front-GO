@@ -1,0 +1,63 @@
+<!-- Navbar -->
+<nav class="flex justify-between items-center p-4 bg-black text-white fixed w-full z-50 shadow-md">
+    <div class="text-2xl font-bold">Game Nation</div>
+    <ul class="flex space-x-6 text-sm uppercase">
+        <li><a href="#">Home</a></li>
+        <li><a href="/Games">Juegos</a></li>
+        <li><a href="/User">Usuarios</a></li>
+      </ul>
+</nav>
+
+<div class="pt-20 px-8 bg-gray-900 min-h-screen text-white">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold">Usuarios</h1>
+        <button (click)="abrirModal()" class="bg-yellow-600 hover:bg-yellow-500 px-4 py-2 rounded font-semibold">
+            Agregar usuario
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div *ngFor="let usuario of usuarios" class="bg-gray-800 p-4 rounded shadow-md relative hover:shadow-lg transition-shadow">
+            <!-- Botones de acción -->
+            <div class="absolute top-2 right-2 flex space-x-2">
+                <button (click)="editarUsuario(usuario)" class="bg-blue-600 hover:bg-blue-500 text-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                </button>
+                <button (click)="eliminarUsuario(usuario.id!)" class="bg-red-600 hover:bg-red-500 text-white p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            
+            <h2 class="text-xl font-bold">{{ usuario.nombre }} {{ usuario.apellido }}</h2>
+            <p class="text-sm mt-1 text-gray-300">📧 {{ usuario.correo_electronico }}</p>
+            <p class="text-sm mt-2">🎮 Plataforma: {{ usuario.plataforma }}</p>
+            <p class="text-sm" [class.text-red-500]="usuario.deleted" [class.text-green-500]="!usuario.deleted">
+                {{ usuario.deleted ? '❌ Inactivo' : '✅ Activo' }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar/editar -->
+<div *ngIf="mostrarModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="bg-white text-black rounded-lg w-11/12 md:w-1/2 p-6 max-h-[90vh] overflow-y-auto">
+        <h2 class="text-2xl font-bold mb-4">{{ usuarioEditandoId ? 'Editar usuario' : 'Agregar nuevo usuario' }}</h2>
+        <form (ngSubmit)="usuarioEditandoId ? actualizarUsuario() : agregarUsuario()" class="grid gap-4">            
+            <input [(ngModel)]="nuevoUsuario.nombre" name="nombre" placeholder="Nombre" required class="p-2 border rounded" />
+            <input [(ngModel)]="nuevoUsuario.apellido" name="apellido" placeholder="Apellido" required class="p-2 border rounded" />
+            <input [(ngModel)]="nuevoUsuario.plataforma" name="plataforma" placeholder="Plataforma" required class="p-2 border rounded" />
+            <input [(ngModel)]="nuevoUsuario.correo_electronico" name="correoElectronico" type="email" placeholder="Correo electrónico" required class="p-2 border rounded" />
+
+            <div class="flex justify-end space-x-2">
+                <button type="button" (click)="cerrarModal()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-colors">Cancelar</button>
+                <button type="submit" class="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-500 transition-colors">
+                    {{ usuarioEditandoId ? 'Actualizar' : 'Agregar' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
